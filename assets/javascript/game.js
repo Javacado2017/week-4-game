@@ -76,7 +76,7 @@
                 gamesWon++;
                 $('#gamesWon').text(gamesWon);
                 alert('You won!');
-                crystalCollector();
+                iconCollector();
             }
 
             //Condition for a loss
@@ -84,14 +84,14 @@
                 gamesLost++;
                 $('#gamesLost').text(gamesLost);
                 alert('You lost!'); 
-                crystalCollector();
+                iconCollector();
             }
 
          });
     };
 
     //Heart of the game
-    function crystalCollector(){
+    function iconCollector(){
         summationTarget();
         createObjects();
         displayImages();
@@ -99,6 +99,6 @@
         gameClick();
     };
 
-    crystalCollector();
+    iconCollector();
 
 });
