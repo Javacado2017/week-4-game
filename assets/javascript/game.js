@@ -1,15 +1,3 @@
-//Variable to define starting value of the number of games won, display on screen 
-var gamesWon = 0
-$('#gamesWon').text(gamesWon);
-
-
-//Variable to define starting value of the number of games lost, display on screen 
-var gamesLost = 0
-$('#gamesLost').text(gamesLost);
-
-
-
-
     //Function to generate a random target summation beween 20 and 50, display on screen
     var targetSummation 
 
@@ -25,7 +13,10 @@ $('#gamesLost').text(gamesLost);
     var imageArray = [];
 
     function createObjects() {
-            
+        
+        //Clears the array before anything happens
+        imageArray.length = 0
+
         for (i=0; i < images; i++)
         imageArray.push({
             link: 'assets/images/image'+[i+1]+'.png', 
@@ -41,6 +32,9 @@ $('#gamesLost').text(gamesLost);
     //Function to display the images on the screen and set a data position to each image for reference later, CSS added to display images inline
     function displayImages() {
 
+        //Clears the hmtl before anything happens
+        $('#displayImages').html('');
+
         for (i=0; i < images; i++)
         $('#displayImages').addClass('displayInline').append('<img data-position="'+i+'" src=' + imageArray[i].link + ' width=75px>');
 
@@ -49,9 +43,21 @@ $('#gamesLost').text(gamesLost);
   
     //Variable to define starting value of the current summation, display on screen 
     var currentSummation = 0
-    $('#currentSummation').text(currentSummation);
+
+    function summationCurrent(){
+        currentSummation = 0
+        $('#currentSummation').text(currentSummation);
+    };
+
+    //Variable to define starting value of the number of games won, display on screen 
+    var gamesWon = 0
+    $('#gamesWon').text(gamesWon);
 
 
+    //Variable to define starting value of the number of games lost, display on screen 
+    var gamesLost = 0
+    $('#gamesLost').text(gamesLost);
+    
     //Function that sets the main conditions of the game
     function gameClick() {
 
@@ -66,7 +72,6 @@ $('#gamesLost').text(gamesLost);
                 gamesWon++;
                 $('#gamesWon').text(gamesWon);
                 alert('You won!');
-                $('#displayImages').html('');
                 crystalCollector();
             }
 
@@ -74,7 +79,6 @@ $('#gamesLost').text(gamesLost);
                 gamesLost++;
                 $('#gamesLost').text(gamesLost);
                 alert('You lost!'); 
-                $('#displayImages').html('');
                 crystalCollector();
             }
 
@@ -85,8 +89,8 @@ $('#gamesLost').text(gamesLost);
         summationTarget();
         createObjects();
         displayImages();
+        summationCurrent();
         gameClick();
-   
     };
 
     crystalCollector();
