@@ -1,4 +1,6 @@
-    //Function to generate a random target summation beween 20 and 50, display on screen
+   $(function(){
+   
+   //Function to generate a random target summation beween 20 and 50, display on screen
     var targetSummation 
 
     function summationTarget() {
@@ -20,7 +22,7 @@
         for (i=0; i < images; i++)
         imageArray.push({
             link: 'assets/images/image'+[i+1]+'.png', 
-            value: Math.floor(Math.random() * 10)+1
+            value: Math.floor(Math.random() * 15)+1
         });
 
         //This just sets one of the values to 1 so make a game win achieveable 
@@ -40,7 +42,6 @@
 
     };
 
-  
     //Variable to define starting value of the current summation, display on screen 
     var currentSummation = 0
 
@@ -48,11 +49,10 @@
         currentSummation = 0
         $('#currentSummation').text(currentSummation);
     };
-
+    
     //Variable to define starting value of the number of games won, display on screen 
     var gamesWon = 0
     $('#gamesWon').text(gamesWon);
-
 
     //Variable to define starting value of the number of games lost, display on screen 
     var gamesLost = 0
@@ -94,7 +94,5 @@
     };
 
     crystalCollector();
-        
 
-    
-
+});
